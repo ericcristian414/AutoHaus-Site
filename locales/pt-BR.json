@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "Início",
+    "how": "Como funciona", 
+    "authors": "Autores",
+    "app": "Aplicativo",
+    "gallery": "Galeria",
+    "contact": "Contato"
+  },
+  "hero": {
+    "badge": "Projeto",
+    "title": "AUTOHAUS: Automação que amplia autonomia",
+    "lead": "Dispositivos inteligentes controlados por aplicativo, pensado para maior autonomia de idosos e pessoas com mobilidade reduzida.",
+    "system": "Sistema",
+    "control": "Controle", 
+    "practical": "Prático",
+    "modular": "Modular",
+    "app": "Aplicativo",
+    "accessibility": "Acessibilidade"
+  },
+  "about": {
+    "title": "Sobre o projeto",
+    "prototype4": "Protótipo N°4",
+    "prototype3": "Protótipo N°3",
+    "structure": "Estrutura do Toldo e Janela",
+    "learn_more": "Saiba mais",
+    "lead": "Com a evolução da Internet das Coisas (IoT), o AUTOHAUS propõe uma solução prática para controle de dispositivos inteligentes via aplicativo, priorizando modularidade e acessibilidade.",
+    "architecture": "Arquitetura Modular",
+    "architecture_desc": "Componentes de baixo custo, e de fácil manutenção e expansão — suporte a múltiplos dispositivos.",
+    "prototype": "Protótipo com ESP32", 
+    "prototype_desc": "Prototipagem em ESP32, com uso de motores e sensores.",
+    "mqtt": "Comunicação MQTT",
+    "mqtt_desc": "Comunicação com mensagens leves e seguras para comunicação entre app e dispositivos.",
+    "accessibility": "Acessibilidade",
+    "accessibility_desc": "Design pensado para pessoas com baixa mobilidade , idosos e Pessoas com Deficiência — controles simples e autônomos."
+  },
+  "how": {
+    "title": "Como funciona | AUTOHAUS",
+    "description": "Entenda como o sistema AUTOHAUS funciona, sua arquitetura, benefícios e como ele pode trazer autonomia para idosos e pessoas com mobilidade reduzida.",
+    "hero": {
+      "badge": "Funcionalidades",
+      "title": "Como o sistema funciona?",
+      "lead": "Conheça o sistema inteligente que oferece autonomia e acessibilidade através de dispositivos controlados por aplicativo."
+    },
+    "evolution": {
+      "title": "Evolução do Projeto",
+      "lead": "O projeto passou por várias iterações até chegar na solução atual.",
+      "timeline": {
+        "item1": {
+          "date": "Agosto 2024",
+          "title": "Identificação do Problema",
+          "desc": "Exposição do bicicletário escolar às intempéries danificando bicicletas e causando transtornos."
+        },
+        "item2": {
+          "date": "Setembro 2024",
+          "title": "Primeiro Protótipo",
+          "desc": "Feito de isopor e com fechamento manual, o sistema apresentava travamentos."
+        },
+        "item3": {
+          "date": "Outubro 2024",
+          "title": "Segundo Protótipo",
+          "desc": "Primeiro testes de automação, com uso de motores reciclados e estrutura feita com palitos de sorvete."
+        },
+        "item4": {
+          "date": "Novembro 2024",
+          "title": "Terceiro Protótipo",
+          "desc": "Prótipo com estrutura mais robustas, uso do Arduino e sensores para o controle do toldo."
+        },
+        "item5": {
+          "date": "Fevereiro 2025",
+          "title": "Quarto Protótipo",
+          "desc": "Sistema adaptado para ser usado em outros dispositivos com substituição do Arduino para o ESP32, idealização do aplicativo."
+        },
+        "item6": {
+          "date": "Março 2025",
+          "title": "Criação do Aplicativo",
+          "desc": "Desenvolvido na linguagem Dart, possibilitou o comando dos dispositivos através de um servidor caseiro."
+        },
+        "item7": {
+          "date": "Maio 2025",
+          "title": "Integração Completa",
+          "desc": "Implementação do protocolo de comunicação MQTT como substitudo ao servidor caseiro, uso de assistentes virtuais e testes finais do Protótipo N°4."
+        }
+      }
+    },
+    "architecture": {
+      "title": "Arquitetura Modular do Sistema",
+      "lead": "O sistema utiliza uma arquitetura escalável baseada em três componentes principais que se comunicam através do protocolo MQTT.",
+      "app": {
+        "title": "Aplicativo Móvel",
+        "desc": "Desenvolvido em Dart, permite:",
+        "items": [
+          "Controle remoto dos dispositivos",
+          "Agendamento de comandos",
+          "Seleção de sensores",
+          "Controle percentual de abertura",
+          "Integração com assistentes virtuais",
+          "Leitura em tempo real dos sensores"
+        ]
+      },
+      "mqtt": {
+        "title": "Servidor MQTT",
+        "desc": "Central de comunicação que:",
+        "items": [
+          "Gerencia mensagens entre aplicativo e dispositivos",
+          "Garante segurança nas comunicações",
+          "Armazena configurações",
+          "Permite integração com outros sistemas",
+          "Oferece tempo médio de resposta de 40ms"
+        ]
+      },
+      "devices": {
+        "title": "Dispositivos Inteligentes",
+        "desc": "Controlados por ESP32 com:",
+        "items": [
+          "Sensores de chuva, luminosidade, entre outros",
+          "Controle de motores para uso em determinados dispositivos",
+          "Estrutura com treliças Howe para resistência",
+          "Múltiplos modos de operação",
+          "Capacidade de expansão para outros dispositivos"
+        ]
+      }
+    },
+    "operation": {
+      "title": "Funcionamento do Sistema",
+      "lead": "O AUTOHAUS opera através de uma combinação de controle manual, automação por sensores e integração com assistentes virtuais.",
+      "features": {
+        "manual": {
+          "title": "Controle Manual",
+          "desc": "Através do aplicativo ou botões físicos, o usuário pode abrir e fechar toldo ou as janelas com controle por percentual."
+        },
+        "auto": {
+          "title": "Modo Automático",
+          "desc": "O sistema reage automaticamente às condições detectadas pelos sensores (chuva, luminosidade, etc)."
+        },
+        "schedule": {
+          "title": "Agendamento",
+          "desc": "Programe ações específicas para horários determinados, como fechar o toldo ao entardecer."
+        },
+        "alerts": {
+          "title": "Alertas Inteligentes",
+          "desc": "Receba notificações quando sensores detectarem modificações nos sensores (chuva, luminosidade)."
+        }
+      }
+    }
+  }
+}

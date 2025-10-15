@@ -1,0 +1,775 @@
+:root {
+  
+  --hero-media-width: 550px;
+  --stack-max: 840px;
+  --stack-max-mobile: 680px;
+--bg: #0b1220;
+  --surface: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  --card: rgba(255,255,255,0.03);
+  --muted: rgba(255,255,255,0.72);
+  --accent1: #7c3aed;
+  --accent2: #06b6d4;
+  --radius: 14px;
+  --glass-border: rgba(255,255,255,0.06);
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, Segoe UI, Roboto, Helvetica, Arial;
+  background:
+    var(--bg);
+  color: #eef2ff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  position: relative;
+  top: 0;
+  z-index: 10;
+  margin: 0 auto;
+  background: var(--surface);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+.brand-text strong {
+  display: block;
+}
+
+.small {
+  font-size: 12px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Nav - Desktop */
+.site-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.site-nav a:hover, 
+.site-nav a:focus {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+/* Main */
+.site-main {
+  padding: 18px 0 28px;
+}
+
+.hero {
+  margin-left: 0px;
+  padding: 0.5rem 0 2rem;
+  display: block;
+  background: transparent;
+  min-height: auto;
+}
+
+
+
+.hero h1 {
+  font-size: clamp(1.9rem, 4.5vw, 3.3rem);
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, var(--hero-media-width));
+  gap: 28px;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, var(--hero-media-width));
+  gap: 28px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 34px;
+  margin: 12px 0 6px;
+  line-height: 1.02;
+}
+
+.lead {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: white;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--muted);
+}
+
+/* KPIs */
+.kpis {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  padding: 0;
+  list-style: none;
+}
+
+.kpis li {
+  background: var(--card);
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  min-width: 120px;
+}
+
+.kpis li strong {
+  display: block;
+}
+
+
+/* Device card */
+.device-card {
+  background: #060a13f1;
+  border-radius: 22px;
+  padding: 12px;
+  padding-bottom: 12px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px rgba(0, 1, 29, 0.6);
+  overflow: hidden;
+  position: relative;
+}
+
+.device-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.device-meta {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 4px 8px;
+  background: transparent;
+}
+
+/* Sections */
+.section {
+  padding: 60px 0;
+}
+
+.section.alt {
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.section-alt1 {
+  background: linear-gradient(180deg, rgba(124,58,237,0.08) 0%, rgba(11,18,32,0) 20%);
+  padding: 10px 0;
+  border: none;
+}
+
+.section-alt2 {
+  background: linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(11,18,32,0) 20%);
+  padding:10px 0;
+  border: none;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+}
+
+/* How it works */
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.how-step {
+  padding: 14px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  text-align: center;
+}
+
+.how-step .icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 20px;
+  margin-bottom: -20px;
+  padding: 25px;
+  border-radius: 0px;
+  background: #060a1381;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+/* Utilities */
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+
+
+@keyframes floaty {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-15px) }
+  100% { transform: translateY(0) }
+}
+
+.card, 
+.device-card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover, 
+.device-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(2,6,23,0.6);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero-inner {
+    grid-template-columns: 1fr minmax(260px, calc(var(--hero-media-width) - 160px));
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .how-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Nav - Desktop */
+@media (min-width: 681px) {
+
+  .site-header { 
+    margin-top: 5px;
+    margin-right: 1px;
+    border-radius: 20px;
+    margin-left: 8px;
+  }
+  .site-nav {
+    position: static; /* Alterado de absolute para static */
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  .site-nav ul {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav a {
+    padding: 8px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .device-card {
+    padding-bottom: 24px;
+  }
+
+  .site-nav a:hover, 
+  .site-nav a:focus {
+    color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 680px) {
+  /* Container do header principal */
+  .site-header {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 30px;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 100;
+  /* overflow: visible; padrão já é visible, mas pode forçar se tiver outro lugar escondendo */
+  }
+
+  
+
+  /* Remover reduções de largura */
+  .pos-0, .pos-1, .pos-2, .pos-3 {
+    width: 100% !important;
+  }
+
+  /* Ajustar posicionamento dos cards */
+  .pos-0 { transform: translateZ(72px) scale(1) !important; }
+  .pos-1 { transform: translateX(10%) translateZ(22px) scale(.95) !important; }
+  .pos-2 { transform: translateZ(0px) scale(.9) !important; }
+  .pos-3 { transform: translateX(-10%) translateZ(22px) scale(.95) !important; }
+
+  /* Garantir que as imagens preencham o espaço */
+  .device-card img {
+    height: 100% !important;
+    object-fit: cover;
+  }
+  /* Botão do menu mobile */
+  .nav-toggle {
+  display: flex !important;
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  } 
+
+  /* Menu que será o "segundo header" */
+  .site-nav {
+  position: relative; /* participate do fluxo normal */
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  background: transparent;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: 0px solid var(--glass-border);
+  border-top: none; /* parece que fica "embaixo" do header */
+  }
+
+  /* Quando o menu está aberto */
+  .site-nav.open {
+  max-height: 520px; /* ajuste conforme conteúdo */
+  padding: 12px 20px;
+  }
+
+  /* Estilização dos itens do menu */
+  .site-nav ul {
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  }
+
+  .site-nav a {
+  display: block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  }
+
+  .site-nav a:hover { background: rgba(255,255,255,0.1); }
+  
+  /* Hero Layout */
+  .hero-inner,
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hero-media {
+    order: 2;
+  }
+  
+  .device-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .device-meta {
+    position: static;
+    text-align: center;
+    margin-bottom: -5px;
+    margin-top: 3px;
+    width: auto;
+    padding: 4px 0;
+  }
+  
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Stack de Cards (custom) ===== */
+.card-stack{
+  position: relative;
+  width: 100%;
+  max-width: var(--stack-max); /* segue o hero-media, ajustável */
+  perspective: 1200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.stack-stage{
+  position: relative;
+  width: 100%;
+  /* mantém proporção 16:9 para a área do stack */
+  padding-top: 65%;
+  height: 0;
+  overflow: visible;
+}
+.stack-card{
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  transform-origin: 50% 50%;
+  border-radius: 25px;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+  transition: transform 620ms cubic-bezier(.2,.9,.3,1), box-shadow 420ms ease, opacity 420ms ease;
+  /* manter visual do device-card (herda .device-card) */
+}
+/* imagens dentro do stack respeitam 16:9 e o estilo atual */
+.stack-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:15px;
+}
+
+/* botão */
+.stack-btn{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--muted);
+  width:44px;
+  height:44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:22px;
+  transition: transform .15s ease;
+  z-index: 10;
+  user-select:none;
+}
+.stack-btn:active{ transform: scale(.98) }
+
+/* Hover/Focus animation for stack buttons */
+.stack-btn:hover, .stack-btn:focus{
+  transform: scale(1.14);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 6px rgba(1, 1, 44, 0.26);
+  border-color: rgba(255,255,255,0.12);
+  color: white;
+}
+
+
+/* posição visual: frente, direita, trás, esquerda */
+/* pos-0 = front (em destaque) */
+.pos-0{
+  z-index: 40;
+  opacity: 1;
+  transform: translateX(0px) translateZ(60px) rotateY(0deg) scale(1);
+  box-shadow: 0 18px 40px rgba(2,6,23,0.6);
+  width: 100%;
+}
+/* pos-1 = next (aparece à direita) - aparece 10px do lado direito */
+.pos-1{
+  z-index: 30;
+  opacity: 1;
+  transform: translateX(10px) translateZ(20px) rotateY(-8deg) scale(.98);
+  width: calc(100% - 18px);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.5);
+}
+/* pos-2 = back (atrás, mais pequeno e mais profundo) */
+.pos-2{
+  z-index: 20;
+  opacity: 1;
+  transform: translateX(0px) translateZ(0px) rotateY(-6deg) scale(.96);
+  width: calc(100% - 36px);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.45);
+}
+/* pos-3 = prev (aparece à esquerda) - aparece 10px do lado esquerdo */
+.pos-3{
+  z-index: 25;
+  opacity: 1;
+  transform: translateX(-10px) translateZ(20px) rotateY(8deg) scale(.98);
+  width: calc(100% - 18px);
+  box-shadow: 0 12px 30px rgba(2,6,23,0.5);
+}
+
+/* quando não estiver em nenhuma posição (estado inicial invisível) */
+.stack-card:not(.pos-0):not(.pos-1):not(.pos-2):not(.pos-3){
+  opacity: 0;
+  transform: translateZ(-40px) scale(.9);
+  pointer-events: none;
+}
+
+/* responsividade: segue seu hero-media */
+@media (max-width: 800px){
+  .card-stack{ max-width: var(--stack-max-mobile); }
+  .stack-btn{ width:40px; height:40px; font-size:20px; }
+  .device-card img{ max-height: 220px; height:auto; }
+}
+/* acessibilidade: reduz animação se preferir */
+@media (prefers-reduced-motion: reduce){
+  .stack-card,
+  .stack-btn{ transition: none !important; animation: none !important; }
+  .pos-0,.pos-1,.pos-2,.pos-3{ transform: none !important; }
+}
+
+
+
+/* ===== Mobile fixes for stack (força maior uso da viewport e feedback tactile) ===== */
+@media (max-width: 680px) {
+  /* permitir que o stack ocupe a maior largura possível da viewport,
+     mantendo pequenas margens laterais para não colar na borda do telefone */
+  .card-stack{
+    max-width: calc(100vw - 24px) !important;
+    margin: 0 12px;
+    gap: 8px;
+  }
+
+  /* garantir proporção 4:3 (ou troque o valor se preferir 16:9 => 56.25%) */
+  .stack-stage{ padding-top: 75% !important; }
+
+  /* remover qualquer limitação de altura nas imagens */
+  .card-stack .device-card img,
+  .stack-card img{
+    max-height: none !important;
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+  }
+
+  /* tornar os botões maiores e posicionados sobre o stack, bom para touch */
+  .stack-btn{
+    width: 52px !important;
+    height: 52px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.35);
+    border-radius: 12px;
+    z-index: 80;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .stack-prev{ left: 8px; }
+  .stack-next{ right: 8px; }
+
+  /* efeito maior no hover/focus e toque (active) */
+  .stack-btn:hover, .stack-btn:focus{
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  }
+  .stack-btn:active{
+    transform: translateY(-50%) scale(.98);
+  }
+
+  /* reduzir sobra e garantir que o card frontal apareça bem maior */
+  .pos-0{ transform: translateX(0) translateZ(72px) scale(1) !important; }
+  .pos-1, .pos-3{ width: calc(100% - 18px) !important; transform: translateZ(22px) scale(.985) !important; }
+  .pos-2{ width: calc(100% - 36px) !important; transform: translateZ(0px) scale(.96) !important; }
+
+  /* evitar que o hero-grid limite a largura do media na versão mobile */
+  .hero-inner { grid-template-columns: 1fr minmax(260px, calc(var(--hero-media-width) - 120px)); }
+}
+
+/* small touch feedback for mobile users (works also on desktop when used by touch) */
+.stack-btn{ -webkit-tap-highlight-color: transparent; }
+
+
+/* ===== Final mobile safe overrides for stack ===== */
+@media (max-width: 680px) {
+  /* Use proportional height (4:3) so image keeps aspect ratio and cards are visible */
+  .card-stack{
+    max-width: calc(100vw - 24px) !important;
+    margin: 0 12px;
+    gap: 8px;
+  }
+  .stack-stage{
+    padding-top: 75% !important; /* 4:3 */
+    height: auto !important;
+    min-height: 260px !important;
+    overflow: visible !important;
+  }
+
+  .site-nav .nav-link.current {
+  font-weight: 800 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  }
+
+  
+  /* Ensure images fill the card area */
+  .card-stack .device-card img,
+  .stack-card img{
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    object-fit: cover !important;
+  }
+  /* Position buttons overlay and make touch friendly */
+  .stack-btn{ position: absolute; top: 50%; transform: translateY(-50%); z-index: 90; }
+  .stack-prev{ left: 8px; }
+  .stack-next{ right: 8px; }
+
+  /* make the front card clearly larger */
+  .pos-0{ transform: translateX(0) translateZ(80px) scale(1) !important; }
+  .pos-1, .pos-3{ transform: translateZ(24px) scale(.98) !important; width: calc(100% - 18px) !important; }
+  .pos-2{ transform: translateZ(0px) scale(.96) !important; width: calc(100% - 36px) !important; }
+}

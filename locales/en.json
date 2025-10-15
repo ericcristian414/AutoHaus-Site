@@ -1,0 +1,147 @@
+{
+  "nav": {
+    "home": "Home",
+    "how": "How it works", 
+    "authors": "Authors",
+    "app": "App",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Project",
+    "title": "AUTOHAUS: Automation that expands autonomy",
+    "lead": "Smart devices controlled by app, designed for greater autonomy for the elderly and people with reduced mobility.",
+    "system": "System",
+    "control": "Control",
+    "practical": "Practical", 
+    "modular": "Modular",
+    "app": "Application",
+    "accessibility": "Accessibility"
+  },
+  "about": {
+    "title": "About the project",
+    "prototype4": "Prototype N°4",
+    "prototype3": "Prototype N°3",
+    "structure": "Awning and Window Structure",
+    "learn_more": "Learn more",
+    "lead": "With the evolution of the Internet of Things (IoT), AUTOHAUS proposes a practical solution for controlling smart devices via app, prioritizing modularity and accessibility.",
+    "architecture": "Modular Architecture",
+    "architecture_desc": "Low-cost components, easy maintenance and expansion — support for multiple devices.",
+    "prototype": "ESP32 Prototype",
+    "prototype_desc": "Prototyping with ESP32, using motors and sensors.",
+    "mqtt": "MQTT Communication", 
+    "mqtt_desc": "Lightweight and secure messaging for communication between app and devices.",
+    "accessibility": "Accessibility",
+    "accessibility_desc": "Design focused on people with low mobility, elderly and People with Disabilities — simple and autonomous controls."
+  },
+  "how": {
+    "title": "How it works | AUTOHAUS",
+    "description": "Understand how the AUTOHAUS system works, its architecture, benefits and how it can bring autonomy to the elderly and people with reduced mobility.",
+    "hero": {
+      "badge": "Features",
+      "title": "How does the system work?",
+      "lead": "Discover the smart system that provides autonomy and accessibility through app-controlled devices."
+    },
+    "evolution": {
+      "title": "Project Evolution",
+      "lead": "The project went through several iterations until reaching the current solution.",
+      "timeline": {
+        "item1": {
+          "date": "August 2024",
+          "title": "Problem Identification",
+          "desc": "Exposure of the school bicycle shed to weather conditions damaging bicycles and causing inconvenience."
+        },
+        "item2": {
+          "date": "September 2024",
+          "title": "First Prototype",
+          "desc": "Made of styrofoam with manual closing, the system had locking issues."
+        },
+        "item3": {
+          "date": "October 2024",
+          "title": "Second Prototype",
+          "desc": "First automation tests, using recycled motors and structure made with popsicle sticks."
+        },
+        "item4": {
+          "date": "November 2024",
+          "title": "Third Prototype",
+          "desc": "Prototype with more robust structure, using Arduino and sensors for awning control."
+        },
+        "item5": {
+          "date": "February 2025",
+          "title": "Fourth Prototype",
+          "desc": "System adapted for use in other devices with replacement of Arduino for ESP32, app conceptualization."
+        },
+        "item6": {
+          "date": "March 2025",
+          "title": "App Creation",
+          "desc": "Developed in Dart language, enabled device control through a homemade server."
+        },
+        "item7": {
+          "date": "May 2025",
+          "title": "Complete Integration",
+          "desc": "Implementation of MQTT communication protocol as replacement for homemade server, use of virtual assistants and final tests of Prototype N°4."
+        }
+      }
+    },
+    "architecture": {
+      "title": "System Modular Architecture",
+      "lead": "The system uses a scalable architecture based on three main components that communicate through the MQTT protocol.",
+      "app": {
+        "title": "Mobile App",
+        "desc": "Developed in Dart, allows:",
+        "items": [
+          "Remote control of devices",
+          "Command scheduling",
+          "Sensor selection",
+          "Percentage opening control",
+          "Integration with virtual assistants",
+          "Real-time sensor reading"
+        ]
+      },
+      "mqtt": {
+        "title": "MQTT Server",
+        "desc": "Communication center that:",
+        "items": [
+          "Manages messages between app and devices",
+          "Ensures communication security",
+          "Stores configurations",
+          "Allows integration with other systems",
+          "Offers average response time of 40ms"
+        ]
+      },
+      "devices": {
+        "title": "Smart Devices",
+        "desc": "Controlled by ESP32 with:",
+        "items": [
+          "Rain, luminosity sensors, among others",
+          "Motor control for use in specific devices",
+          "Howe truss structure for resistance",
+          "Multiple operation modes",
+          "Expansion capability for other devices"
+        ]
+      }
+    },
+    "operation": {
+      "title": "System Operation",
+      "lead": "AUTOHAUS operates through a combination of manual control, sensor automation and integration with virtual assistants.",
+      "features": {
+        "manual": {
+          "title": "Manual Control",
+          "desc": "Through the app or physical buttons, the user can open and close awning or windows with percentage control."
+        },
+        "auto": {
+          "title": "Automatic Mode",
+          "desc": "The system automatically reacts to conditions detected by sensors (rain, luminosity, etc)."
+        },
+        "schedule": {
+          "title": "Scheduling",
+          "desc": "Schedule specific actions for determined times, such as closing the awning at dusk."
+        },
+        "alerts": {
+          "title": "Smart Alerts",
+          "desc": "Receive notifications when sensors detect changes in sensors (rain, luminosity)."
+        }
+      }
+    }
+  }
+}

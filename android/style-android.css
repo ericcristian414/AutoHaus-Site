@@ -349,6 +349,158 @@ h1 {
   height: 56px; 
 }
 
+/* Footer Mobile Styles */
+.site-footer {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 20px 0;
+  border-radius: 0;
+  background: #060a13;
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 0 20px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-contact {
+  text-align: right;
+  font-size: 12px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.social-link:hover,
+.social-link:focus {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.footer-brand strong {
+  font-size: 14px;
+}
+
+.footer-brand .muted {
+  font-size: 11px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 680px) {
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 15px;
+  }
+  
+  .footer-right {
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .footer-contact {
+    font-size: 11px;
+    text-align: right;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  
+  .social-logo {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .footer-brand {
+    gap: 10px;
+  }
+  
+  .footer-brand img.logo {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .footer-brand strong {
+    font-size: 13px;
+  }
+  
+  .footer-brand .muted {
+    font-size: 10px;
+  }
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 380px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .footer-right {
+    flex-direction: row;
+    gap: 15px;
+    order: -1;
+  }
+  
+  .footer-contact {
+    text-align: center;
+  }
+}
+
 .floaty {
   animation: floaty 6s ease-in-out infinite;
 }

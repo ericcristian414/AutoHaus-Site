@@ -42,7 +42,6 @@ const setCurrentPageLink = () => {
   const pageMap = {
     'index-desktop.html': 'index-desktop.html',
     'como-funciona.html': 'como-funciona.html',
-    'autores.html': 'autores.html',
     'aplicativo.html': 'aplicativo.html',
     'galery.html': 'galery.html',
     'contato.html': 'contato.html'
@@ -223,7 +222,7 @@ function initThemeToggle(){
   const root = document.documentElement;
   const body = document.body;
 
-  let dark = false;
+  let dark = true;
   try {
     const saved = localStorage.getItem('pref-theme-dark');
     if (saved !== null) dark = saved === '1';

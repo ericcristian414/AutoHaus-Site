@@ -167,10 +167,10 @@
         "open": "Abrir",
         "close": "Recolher", 
         "manual": "Controle Manual: 50%",
-        "rain": "Detecção de Chuva",
+        "rain": "Detecção de Chuva:",
         "auto": "Modo Automático",
         "climate": "Controle baseado em clima",
-        "clean": "Limpo ☀️"
+        "clean": "LIMPO ☀️"
       },
       "schedule": {
         "alt": "Tela de agendamento do aplicativo AutoHaus",

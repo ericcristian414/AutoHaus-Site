@@ -167,9 +167,10 @@
         "open": "Open",
         "close": "Close",
         "manual": "Manual Control:", 
-        "rain": "Rain Detection",
+        "rain": "Rain Detection:",
         "auto": "Auto Mode",
-        "climate": "Weather-based control"
+        "climate": "Weather-based control",
+        "clean": "CLEAN ☀️"
       },
       "schedule": {
         "alt": "AutoHaus app scheduling screen",

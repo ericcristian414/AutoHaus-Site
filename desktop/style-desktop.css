@@ -209,6 +209,14 @@ body {
   color: #ffffff;
 }
 
+[data-theme="light"] span7 {
+  color: #39D258;
+}
+
+[data-theme="dark"] span7 {
+  color: #39D258;
+}
+
 [data-theme="light"] .brand-text .muted {
   color: var(--muted);
 }
@@ -465,6 +473,48 @@ body.dark {}
   gap: 12px;
 }
 
+
+/* Footer Styles Update */
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-contact {
+  text-align: right;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 680px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-right {
+    flex-direction: column;
+    gap: 15px;
+    order: -1; /* Coloca o conteúdo da direita em cima no mobile */
+  }
+  
+  .footer-contact {
+    text-align: center;
+  }
+  
+  .footer-brand {
+    order: 1; /* Coloca a logo embaixo no mobile */
+  }
+} 
 .footer-brand img.logo {
   width: 56px;
   height: 56px; 

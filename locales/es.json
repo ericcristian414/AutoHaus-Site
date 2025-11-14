@@ -167,9 +167,10 @@
         "open": "Abrir",
         "close": "Cerrar",
         "manual": "Control Manual: 50%",
-        "rain": "Detección de Lluvia", 
+        "rain": "Detección de Lluvia>", 
         "auto": "Modo Automático",
-        "climate": "Control basado en el clima"
+        "climate": "Control basado en el clima",
+        "clean": "LIMPIO ☀️"
       },
       "schedule": {
         "alt": "Pantalla de programación de la aplicación AutoHaus",

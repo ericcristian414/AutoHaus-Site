@@ -1,7 +1,5 @@
-// AUTO-REDIRECT: send user to platform-specific html based on viewport width
 (function(){
   try {
-    // Only redirect when visiting the root index.html or the site root
     const path = window.location.pathname.split('/').pop();
     if (path === '' || path === 'index.html') {
       if (window.innerWidth <= 680) {
@@ -13,7 +11,6 @@
   } catch(e){ console.warn('redirect check failed', e); }
 })();
 
-// Função para carregar fragmentos HTML
 const loadFragment = async (url, selector) => {
   try {
     const response = await fetch(url);
@@ -32,7 +29,6 @@ const loadFragment = async (url, selector) => {
   }
 };
 
-// Função para definir variável CSS com altura do header
 const setHeaderVar = () => {
   const header = document.querySelector('.site-header');
   if (!header) return;
@@ -40,11 +36,9 @@ const setHeaderVar = () => {
   document.documentElement.style.setProperty('--header-h', h + 'px');
 };
 
-// Função para marcar a página atual na navegação
 const setCurrentPageLink = () => {
   const currentPath = window.location.pathname;
   
-  // Mapeamento de páginas para identificar a atual
   const pageMap = {
     'index-desktop.html': 'index-desktop.html',
     'como-funciona.html': 'como-funciona.html',
@@ -54,7 +48,6 @@ const setCurrentPageLink = () => {
     'contato.html': 'contato.html'
   };
   
-  // Encontra a página atual
   let currentPage = '';
   for (const [key, value] of Object.entries(pageMap)) {
     if (currentPath.includes(value)) {
@@ -63,19 +56,16 @@ const setCurrentPageLink = () => {
     }
   }
   
-  // Se não encontrou, assume que é a página inicial
   if (!currentPage && (currentPath.endsWith('/desktop/') || currentPath.endsWith('/') || currentPath.includes('index'))) {
     currentPage = 'index-desktop.html';
   }
   
   console.log('Página atual detectada:', currentPage);
   
-  // Remove a classe 'current' de todos os links
   document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.remove('current');
   });
   
-  // Adiciona a classe 'current' ao link correspondente
   document.querySelectorAll('.nav-link').forEach(link => {
     const linkHref = link.getAttribute('href');
     if (linkHref === currentPage) {
@@ -83,7 +73,6 @@ const setCurrentPageLink = () => {
       console.log('Link marcado como atual:', linkHref);
     }
     
-    // Caso especial para a página inicial
     if (currentPage === 'index-desktop.html' && linkHref === 'index-desktop.html') {
       link.classList.add('current');
     }
@@ -91,19 +80,16 @@ const setCurrentPageLink = () => {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Detecta se é mobile ou desktop
   const isMobile = window.innerWidth <= 680;
   const headerFile = isMobile ? 'header-mobile.html' : 'header-desktop.html';
 
   console.log(`Carregando: ${headerFile}`);
 
-  // Carrega header e footer
   const [headerLoaded, footerLoaded] = await Promise.all([
     loadFragment(headerFile, '#header-placeholder'),
     loadFragment('footer.html', '#footer-placeholder')
   ]);
 
-  // Inicializa o menu no mobile
   if (headerLoaded && isMobile) {
     const menuToggle = document.getElementById('nav-toggle');
     const menuNav = document.getElementById('site-nav');
@@ -115,7 +101,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         menuNav.classList.toggle('open');
       });
 
-      // Fecha o menu ao clicar nos links
       menuNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           menuNav.classList.remove('open');
@@ -125,15 +110,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Marca a página atual na navegação (para desktop e mobile)
   if (headerLoaded) {
-    // Pequeno delay para garantir que o header foi completamente renderizado
     setTimeout(() => {
       setCurrentPageLink();
+      setHeaderVar();
     }, 100);
+
+    initThemeToggle();
   }
 
-  // Atualiza o ano no footer
   if (footerLoaded) {
     const yearEl = document.getElementById('year');
     if (yearEl) {
@@ -141,14 +126,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Define altura do header
   setHeaderVar();
   window.addEventListener('resize', setHeaderVar);
 });
 
 
 
-/* ===== Stack de Cards - comportamento ===== */
 (function(){
   const init = () => {
     const prevBtn = document.querySelector('.stack-prev');
@@ -159,9 +142,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let animating = false;
     const count = cards.length;
 
-    // Apply classes according to current index
     const applyPositions = () => {
-      // order: front=current, next=current+1, back=current+2, prev=current+3 (mod count)
       for (let i=0;i<count;i++){
         const el = cards[i];
         el.classList.remove('pos-0','pos-1','pos-2','pos-3');
@@ -178,7 +159,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const move = (dir) => {
       if (animating) return;
       animating = true;
-      // dir: 1 = next, -1 = prev
       if (dir === 1) {
         current = (current + 1) % count;
       } else {
@@ -191,13 +171,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     nextBtn && nextBtn.addEventListener('click', ()=> move(1));
     prevBtn && prevBtn.addEventListener('click', ()=> move(-1));
 
-    // teclado
     window.addEventListener('keydown', (ev) => {
       if (ev.key === 'ArrowRight') move(1);
       if (ev.key === 'ArrowLeft') move(-1);
     });
 
-    // touch / swipe (pointer)
     let startX = null, startTime = null;
     const stage = document.querySelector('.stack-stage');
     if (stage) {
@@ -210,7 +188,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (startX === null) return;
         const dx = e.clientX - startX;
         const dt = Date.now() - startTime;
-        // threshold: 40px and max 500ms for flick
         if (Math.abs(dx) > 40 && dt < 800) {
           if (dx < 0) move(1); else move(-1);
         }
@@ -219,7 +196,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       stage.addEventListener('pointercancel', ()=> startX = null);
     }
 
-    // announce changes for screen readers
     const live = stage;
     if (live) {
       const observer = new MutationObserver(()=>{
@@ -239,3 +215,49 @@ document.addEventListener('DOMContentLoaded', async () => {
     init();
   }
 })();
+
+function initThemeToggle(){
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+
+  const root = document.documentElement;
+  const body = document.body;
+
+  let dark = false;
+  try {
+    const saved = localStorage.getItem('pref-theme-dark');
+    if (saved !== null) dark = saved === '1';
+  } catch(e){}
+
+  const applyTheme = () => {
+    root.classList.toggle('dark', dark);
+    root.classList.toggle('light', !dark);
+    body.classList.toggle('dark', dark);
+    body.classList.toggle('light', !dark);
+
+    try { root.setAttribute('data-theme', dark ? 'dark' : 'light'); } catch(e){}
+
+    toggle.classList.toggle('dark', dark);
+    toggle.classList.toggle('light', !dark);
+    toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+
+    try {
+      toggle.style.setProperty('--theme-rot', dark ? '180deg' : '0deg');
+      root.style.setProperty('--theme-rot', dark ? '180deg' : '0deg');
+    } catch(e){}
+
+    try { localStorage.setItem('pref-theme-dark', dark ? '1' : '0'); } catch(e) {}
+  };
+
+  const toggleTheme = () => {
+    dark = !dark;
+    applyTheme();
+  };
+
+  toggle.addEventListener('click', toggleTheme);
+  toggle.addEventListener('keydown', (e) => {
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggleTheme(); }
+  });
+
+  applyTheme();
+}

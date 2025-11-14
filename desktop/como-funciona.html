@@ -37,7 +37,6 @@
       font-size: 24px;
     }
     
-    /* Timeline com setas de balão */
     .timeline {
       position: relative;
       max-width: 800px;
@@ -90,7 +89,6 @@
       box-shadow: 0 20px 40px rgba(2,6,23,0.6);
     }
     
-    /* Seta do balão para os itens da direita */
     .timeline-content::after {
       content: '';
       position: absolute;
@@ -105,7 +103,6 @@
       z-index: 3;
     }
     
-    /* Seta do balão para os itens da esquerda */
     .timeline-item:nth-child(odd) .timeline-content::after {
       left: -10px;
       right: auto;
@@ -113,7 +110,6 @@
       border-right: 10px solid var(--card);
     }
     
-    /* Adicionando uma borda para a seta para combinar com o card */
     .timeline-content::before {
       content: '';
       position: absolute;
@@ -141,7 +137,6 @@
       margin-bottom: 5px;
     }
     
-    /* Ponto na linha do tempo */
     .timeline-item::before {
       content: '';
       position: absolute;

@@ -18,7 +18,6 @@ class I18n {
             this.translations = await response.json();
         } catch (error) {
             console.error('Error loading translations:', error);
-            // Fallback to Portuguese
             try {
                 const fallbackResponse = await fetch('../locales/pt-BR.json');
                 this.translations = await fallbackResponse.json();
@@ -29,7 +28,6 @@ class I18n {
     }
 
     applyTranslations() {
-        // Update all elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const translation = this.getTranslation(key);
@@ -47,10 +45,8 @@ class I18n {
             }
         });
 
-        // Update HTML lang attribute
         document.documentElement.lang = this.currentLang;
         
-        // Update current language display
         this.updateLanguageDisplay();
     }
 
@@ -64,7 +60,6 @@ class I18n {
         const langOptions = document.querySelectorAll('.lang-option');
 
         if (langTrigger) {
-            // Toggle dropdown
             langTrigger.addEventListener('click', (e) => {
                 e.stopPropagation();
                 langSelector.classList.toggle('open');
@@ -72,7 +67,6 @@ class I18n {
                     langSelector.classList.contains('open'));
             });
 
-            // Select language
             langOptions.forEach(option => {
                 option.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -83,7 +77,6 @@ class I18n {
                 });
             });
 
-            // Close dropdown when clicking outside
             document.addEventListener('click', (e) => {
                 if (!langSelector.contains(e.target)) {
                     langSelector.classList.remove('open');
@@ -91,7 +84,6 @@ class I18n {
                 }
             });
 
-            // Close on escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && langSelector.classList.contains('open')) {
                     langSelector.classList.remove('open');
@@ -107,7 +99,6 @@ class I18n {
         const currentLang = this.currentLang;
 
         if (langTrigger) {
-            // Update trigger display
             const currentOption = document.querySelector(`.lang-option[data-value="${currentLang}"]`);
             if (currentOption) {
                 const flagSrc = currentOption.querySelector('.lang-flag').src;
@@ -119,7 +110,6 @@ class I18n {
                     currentLang === 'en' ? 'EN' : 'ES';
             }
 
-            // Update selected state
             langOptions.forEach(option => {
                 const isSelected = option.getAttribute('data-value') === currentLang;
                 option.setAttribute('aria-selected', isSelected);
@@ -134,7 +124,6 @@ class I18n {
         await this.loadTranslations(lang);
         this.applyTranslations();
         
-        // Dispatch event for other components to listen to
         window.dispatchEvent(new CustomEvent('languageChanged', {
             detail: { language: lang }
         }));
@@ -145,7 +134,6 @@ class I18n {
     }
 }
 
-// Initialize i18n when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.i18n = new I18n();
 });

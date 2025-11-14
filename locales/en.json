@@ -22,6 +22,7 @@
     "title": "About the project",
     "prototype4": "Prototype N°4",
     "prototype3": "Prototype N°3",
+    "Window": "Full-size window",
     "structure": "Awning and Window Structure",
     "learn_more": "Learn more",
     "lead": "With the evolution of the Internet of Things (IoT), AUTOHAUS proposes a practical solution for controlling smart devices via app, prioritizing modularity and accessibility.",
@@ -143,5 +144,139 @@
         }
       }
     }
+  },
+  "app": {
+    "title": "App | AUTOHAUS",
+    "description": "Discover the AutoHaus app for controlling smart devices, with an accessible interface and advanced features.",
+    "hero": {
+      "badge": "App",
+      "title": "Control your devices with a tap",
+      "lead": "The AutoHaus app offers complete control over your smart devices, with an accessible interface and various features.",
+      "download": "Download App"
+    },
+    "screens": {
+      "title": "App Interface",
+      "lead": "Intuitive and accessible design, developed to offer the best user experience.",
+      "main": {
+        "alt": "AutoHaus app main screen",
+        "text": "Main Screen"
+      },
+      "control": {
+        "alt": "AutoHaus app device control screen",
+        "text": "Awning",
+        "open": "Open",
+        "close": "Close",
+        "manual": "Manual Control:", 
+        "rain": "Rain Detection",
+        "auto": "Auto Mode",
+        "climate": "Weather-based control"
+      },
+      "schedule": {
+        "alt": "AutoHaus app scheduling screen",
+        "text": "Awning Adjustments"
+      },
+      "sensors": {
+        "alt": "AutoHaus app sensors screen",
+        "text": "Devices Menu"
+      },
+      "settings": {
+        "alt": "AutoHaus app settings screen",
+        "text": "Settings"
+      }
+    },
+    "download": {
+      "title": "Download the App",
+      "lead": "Available for Android devices. Download now and start controlling your smart devices.",
+      "button": "Download APK",
+      "note": "Note: You need to allow installation of apps from unknown sources in your Android device settings."
+    }
+  },
+  "contact": {
+    "title": "Contact | AUTOHAUS",
+    "description": "Get in touch with the AUTOHAUS team. Ask your questions about our products and home automation systems.",
+    "hero": {
+      "badge": "Contact",
+      "title": "Contact us",
+      "lead": "Have questions about the project? Contact us for more information."
+    },
+    "section_title": "Get in Touch",
+    "section_lead": "We are here to answer your questions about the system.",
+    "eric": {
+      "role": "Developer"
+    },
+    "andre": {
+      "role": "Engineer"
+    },
+    "email": "Email",
+    "phone": "Phone",
+    "instagram": "Instagram",
+    "form": {
+      "title": "Send your message",
+      "subtitle": "Fill out the form below and we will get in touch.",
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Your message has been sent successfully! We will contact you soon.",
+      "error": "Error sending message. Please try again.",
+      "validation": "Please fill in all fields.",
+      "sending": "Sending your message..."
+    }
+  },
+  "gallery": {
+  "title": "Gallery | AUTOHAUS",
+  "description": "Check out our gallery of images from the prototypes, development and application of the AUTOHAUS system.",
+  "hero": {
+    "badge": "Gallery",
+    "title": "Our Journey in Images",
+    "lead": "Explore the evolution of the AUTOHAUS project through photos of the prototypes and practical system development."
+  },
+  "section_title": "Project Gallery",
+  "lead": "From conception to implementation, follow each stage of our automation system development.",
+  "filters": {
+    "all": "All",
+    "prototypes": "Prototypes",
+    "development": "Development",
+    "team": "Team"
+  },
+  "items": {
+    "prototype1": {
+      "title": "Initial Prototype",
+      "desc": "First version of the system with basic structure."
+    },
+    "prototype2": {
+      "title": "Improved Prototype",
+      "desc": "Second iteration with stick structure and simple electronics."
+    },
+    "prototype3": {
+      "title": "Prototype with Automation",
+      "desc": "Third version integrating sensors and button control system."
+    },
+    "prototype4": {
+      "title": "Final Prototype",
+      "desc": "Final prototype version with all functionalities implemented."
+    },
+    "prototype5": {
+      "title": "3D Model of the Awning and Window",
+      "desc": "Structure produced in the SketchUp application."
+    },
+    "development1": {
+      "title": "ESP32 Programming",
+      "desc": "Microcontroller configuration process."
+    },
+    "development2": {
+      "title": "App Development",
+      "desc": "App creation process"
+    },
+    "development3": {
+      "title": "3D Awning Model",
+      "desc": "Structure produced in the SketchUp application."
+    },
+    "team1": {
+      "title": "AUTOHAUS Team",
+      "desc": "Team being awarded at Inovalândia."
+    }
   }
+}
 }

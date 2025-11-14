@@ -10,18 +10,17 @@
   <script defer src="../script.js"></script>
   <script defer src="../i18n.js"></script>
   <style>
-    /* Ajustes para o layout do aplicativo */
     .hero .container {
       display: grid;
-      grid-template-columns: 1fr 380px; /* Mais espaço para o app à direita */
+      grid-template-columns: 1fr 380px; 
       gap: 40px;
       align-items: center;
     }
     
     .hero-media {
       display: flex;
-      justify-content: flex-end; /* Alinha o app à direita */
-      margin-right: -20px; /* Compensa um pouco a margem para direita */
+      justify-content: flex-end; 
+      margin-right: -20px; 
     }
     
     .app-showcase {
@@ -32,7 +31,7 @@
     
     .phone-mockup {
       position: right;
-      width: 350px; /* Ligeiramente maior */
+      width: 350px; 
       height: 680px;
       background: #0f172a;
       border-radius: 40px;
@@ -55,7 +54,7 @@
     
     .phone-notch {
       position: absolute;
-      top: 0;
+      top:-10px;
       left: 50%;
       transform: translateX(-50%);
       width: 150px;
@@ -65,7 +64,6 @@
       z-index: 3;
     }
     
-    /* CSS CORRIGIDO PARA O APLICATIVO TOLDO */
     .toldo-body {
       background-color: #010B14;
       color: white;
@@ -77,7 +75,6 @@
       overflow: hidden;
     }
     
-    /* Container principal */
     .toldo-main-container {
       width: 100%;
       height: 100%;
@@ -87,7 +84,6 @@
       padding: 20px 16px;
     }
     
-    /* Cabeçalho */
     .toldo-header {
       display: flex;
       justify-content: space-between;
@@ -110,7 +106,6 @@
       cursor: pointer;
     }
     
-    /* Container central */
     .toldo-content-container {
       flex: 1;
       display: flex;
@@ -126,7 +121,6 @@
       position: relative;
     }
     
-    /* Botões Abrir e Recolher */
     .toldo-button-open {
       position: absolute;
       top: 25px;
@@ -169,7 +163,6 @@
       font-weight: 600;
     }
     
-    /* Controle Manual */
     .toldo-manual-control {
       position: absolute;
       top: 157px;
@@ -271,7 +264,6 @@
       cursor: pointer;
     }
     
-    /* Detecção de Chuva */
     .toldo-rain-detection {
       position: absolute;
       bottom: 25px;
@@ -301,7 +293,6 @@
       color: #E12428;
     }
     
-    /* Modo Automático - CORRIGIDO */
     .toldo-auto-mode {
       margin-top: 16px;
       background-color: #1D2428;
@@ -333,7 +324,7 @@
     }
     
     .toldo-auto-mode-text h3 {
-      font-size: 16px;
+      font-size: 9px;
       font-weight: 600;
       margin-bottom: 4px;
     }
@@ -350,17 +341,14 @@
       padding-bottom: 3px;
     }
     
-    /* Switch para Modo Automático - POSIÇÃO CORRIGIDA */
     .toldo-auto-switch-container {
       margin-left: 10px;
     }
     
-    /* Ícones nos botões */
     .toldo-icon {
       margin-right: 6px;
     }
-    
-    /* Restante do CSS existente */
+
     .app-screen-content {
       padding: 50px 20px 20px;
       height: 100%;
@@ -627,7 +615,6 @@
       display: block;
     }
 
-    /* Ajustes para responsividade */
     @media (max-width: 1000px) {
       .hero .container {
         grid-template-columns: 1fr;
@@ -655,56 +642,51 @@
 <body>
   <div id="header-placeholder"></div>
 
-  <main class="site-main">
+   <main class="site-main">
     <section class="hero" aria-label="Aplicativo AutoHaus">
       <div class="container hero-inner">
         <div class="hero-copy">
           <span class="badge" data-i18n="app.hero.badge">Aplicativo</span>
           <h1 data-i18n="app.hero.title">Controle seus dispositivos com um toque</h1>
-          <p class="lead" data-i18n="app.hero.lead">O aplicativo AutoHaus oferece controle completo sobre seus dispositivos inteligentes, com interface acessível e funcionalidades avançadas.</p>
+          <p class="lead" data-i18n="app.hero.lead">O aplicativo AutoHaus oferece controle completo sobre seus dispositivos inteligentes, com interface acessível e diversas funcionalidades.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#download" data-i18n="app.download">Baixar Aplicativo</a>
+            <a class="btn btn-primary" href="#download" data-i18n="app.hero.download">Baixar Aplicativo</a>
             <a class="btn btn-ghost" href="como-funciona.html" data-i18n="about.learn_more">Saiba mais</a>
           </div>
         </div>
         <div class="hero-media">
           <div class="app-showcase">
             <div class="phone-mockup">
-              <div class="phone-notch"></div>
               <div class="phone-screen">
+              <div class="phone-notch"></div>
                 <div class="toldo-body">
                   <div class="toldo-main-container">
-                    <!-- Cabeçalho -->
                     <div class="toldo-header">
                       <div class="toldo-back-icon">←</div>
-                      <div class="toldo-title">Toldo</div>
+                      <div class="toldo-title" data-i18n="app.screens.control.text">Toldo</div>
                       <div class="toldo-menu-icon">⋮</div>
                     </div>
                     
-                    <!-- Conteúdo principal -->
                     <div class="toldo-content-container">
                       <div class="toldo-card">
-                        <!-- Botão Abrir -->
                         <div class="toldo-button-open">
-                          <span class="toldo-icon">↑</span>
-                          <span>Abrir</span>
+                          <span1 class="toldo-icon">↑</span1>
+                          <span1 data-i18n="app.screens.control.open">Abrir</span1>
                         </div>
                         
-                        <!-- Botão Recolher -->
                         <div class="toldo-button-close">
-                          <span class="toldo-icon">↓</span>
-                          <span>Recolher</span>
+                          <span1 class="toldo-icon">↓</span1>
+                          <span1 data-i18n="app.screens.control.close">Recolher</span1>
                         </div>
                         
-                        <!-- Controle Manual -->
                         <div class="toldo-manual-control">
-                          <div class="toldo-control-label">
-                            Controle Manual: <span class="toldo-position-value">50%</span>
+                          <div class="toldo-control-label" data-i18n="app.screens.control.manual">
+                            Controle Manual: <span1> 50% </span1>
                           </div>
                           <div class="toldo-switch-container">
                             <label class="toldo-switch">
                               <input type="checkbox" checked>
-                              <span class="toldo-slider"></span>
+                              <span1 class="toldo-slider"></span1>
                             </label>
                           </div>
                           <div class="toldo-slider-control">
@@ -712,21 +694,19 @@
                           </div>
                         </div>
                         
-                        <!-- Detecção de Chuva -->
                         <div class="toldo-rain-detection">
-                          <div>
-                            Detecção de Chuva: <span class="toldo-rain-status toldo-status-dry">LIMPO ☀️</span>
+                          <div data-i18n="app.screens.control.rain">
+                            Detecção de Chuva: <span2 class="toldo-rain-status toldo-status-dry" data-i18n="app.screens.control.clean">LIMPO ☀️</span2>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <!-- Modo Automático - ESTRUTURA CORRIGIDA -->
                     <div class="toldo-auto-mode">
                       <div class="toldo-auto-mode-content">
                         <div class="toldo-auto-mode-text">
-                          <div class="toldo-clima-label">Modo Automático</div>
-                          <p>Controle Clima</p>
+                          <div class="toldo-clima-label" data-i18n="app.screens.control.auto">Modo Automático</div>
+                          <p data-i18n="app.screens.control.climate">Controle Clima</p>
                         </div>
                         <div class="toldo-auto-switch-container">
                           <label class="toldo-switch">
@@ -745,8 +725,6 @@
       </div>
     </section>
 
-
-
     <section id="screens" class="section alt section-alt4">
       <div class="container">
         <h2 class="section-title" data-i18n="app.screens.title">Interface do Aplicativo</h2>
@@ -754,24 +732,24 @@
         
         <div class="app-screens-scroll">
           <div class="screen-preview">
-            <img src="../images/app-screen1.jpg" alt="Tela principal do aplicativo AutoHaus" data-i18n="app.screen.main.alt">
-            <div class="device-meta-toldo" data-i18n="app.screen.main">Tela Principal</div>
+            <img src="../images/start-screen.png" alt="Tela principal do aplicativo AutoHaus" data-i18n="app.screens.main.alt">
+            <div class="device-meta-toldo" data-i18n="app.screens.main.text">Tela Principal</div>
           </div>
           <div class="screen-preview">
-            <img src="../images/app-screen2.jpg" alt="Tela de controle de dispositivos do aplicativo AutoHaus" data-i18n="app.screen.control.alt">
-            <div class="device-meta-toldo" data-i18n="app.screen.control">Controle de Dispositivos</div>
+            <img src="../images/Control.png" alt="Tela de controle de dispositivos do aplicativo AutoHaus" data-i18n="app.screens.control.alt">
+            <div class="device-meta-toldo" data-i18n="app.screens.control.text">Controle de Dispositivos</div>
           </div>
           <div class="screen-preview">
-            <img src="../images/app-screen3.jpg" alt="Tela de agendamento do aplicativo AutoHaus" data-i18n="app.screen.schedule.alt">
-            <div class="device-meta-toldo" data-i18n="app.screen.schedule">Agendamento</div>
+            <img src="../images/ajustments.png" alt="Tela de agendamento do aplicativo AutoHaus" data-i18n="app.screens.schedule.alt">
+            <div class="device-meta-toldo" data-i18n="app.screens.schedule.text">Ajustes do Toldo</div>
           </div>
           <div class="screen-preview">
-            <img src="../images/app-screen4.jpg" alt="Tela de sensores do aplicativo AutoHaus" data-i18n="app.screen.sensors.alt">
-            <div class="device-meta-toldo" data-i18n="app.screen.sensors">Monitoramento de Sensores</div>
+            <img src="../images/devices.png" alt="Tela de sensores do aplicativo AutoHaus" data-i18n="app.screens.sensors.alt">
+            <div class="device-meta-toldo" data-i18n="app.screens.sensors.text">Menu de dispositivos</div>
           </div>
           <div class="screen-preview">
-            <img src="../images/app-screen5.jpg" alt="Tela de configurações do aplicativo AutoHaus" data-i18n="app.screen.settings.alt">
-            <div class="device-meta-toldo" data-i18n="app.screen.settings">Configurações</div>
+            <img src="../images/settings.png" alt="Tela de configurações do aplicativo AutoHaus" data-i18n="app.screens.settings.alt">
+            <div class="device-meta-toldo" data-i18n="app.screens.settings.text">Configurações</div>
           </div>
         </div>
       </div>
@@ -786,7 +764,7 @@
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 16L7 11L8.4 9.55L11 12.15V4H13V12.15L15.6 9.55L17 11L12 16ZM6 20C5.45 20 4.979 19.804 4.587 19.412C4.195 19.02 3.99934 18.5493 4 18V15H6V18H18V15H20V18C20 18.55 19.804 19.021 19.412 19.413C19.02 19.805 18.5493 20.0007 18 20H6Z" fill="white"/>
           </svg>
-          <span data-i18n="app.download.button">Baixar APK</span>
+          <span1 data-i18n="app.download.button">Baixar APK</span1>
         </a>
         
         <p class="muted small" style="margin-top: 20px;" data-i18n="app.download.note">Nota: É necessário permitir a instalação de aplicativos de fontes desconhecidas nas configurações do seu dispositivo Android.</p>

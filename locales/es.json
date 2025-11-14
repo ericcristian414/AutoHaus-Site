@@ -22,6 +22,7 @@
     "title": "Sobre el proyecto",
     "prototype4": "Prototipo N°4",
     "prototype3": "Prototipo N°3",
+    "Window": "Ventana a escala completa",
     "structure": "Estructura del Toldo y Ventana",
     "learn_more": "Saber más",
     "lead": "Con la evolución del Internet de las Cosas (IoT), AUTOHAUS propone una solución práctica para controlar dispositivos inteligentes mediante aplicación, priorizando modularidad y accesibilidad.",
@@ -143,5 +144,139 @@
         }
       }
     }
+  },
+  "app": {
+    "title": "Aplicación | AUTOHAUS",
+    "description": "Conozca la aplicación AutoHaus para control de dispositivos inteligentes, con interfaz accesible y funcionalidades avanzadas.",
+    "hero": {
+      "badge": "Aplicación",
+      "title": "Controla tus dispositivos con un toque",
+      "lead": "La aplicación AutoHaus ofrece control completo sobre sus dispositivos inteligentes, con interfaz accesible y diversas funcionalidades.",
+      "download": "Descargar Aplicación"
+    },
+    "screens": {
+      "title": "Interfaz de la Aplicación",
+      "lead": "Diseño intuitivo y accesible, desarrollado para ofrecer la mejor experiencia de usuario.",
+      "main": {
+        "alt": "Pantalla principal de la aplicación AutoHaus",
+        "text": "Pantalla Principal"
+      },
+      "control": {
+        "alt": "Pantalla de control de dispositivos de la aplicación AutoHaus",
+        "text": "Toldo",
+        "open": "Abrir",
+        "close": "Cerrar",
+        "manual": "Control Manual: 50%",
+        "rain": "Detección de Lluvia", 
+        "auto": "Modo Automático",
+        "climate": "Control basado en el clima"
+      },
+      "schedule": {
+        "alt": "Pantalla de programación de la aplicación AutoHaus",
+        "text": "Ajustes del Toldo"
+      },
+      "sensors": {
+        "alt": "Pantalla de sensores de la aplicación AutoHaus",
+        "text": "Menú de dispositivos"
+      },
+      "settings": {
+        "alt": "Pantalla de configuración de la aplicación AutoHaus",
+        "text": "Configuración"
+      }
+    },
+    "download": {
+      "title": "Descarga la Aplicación",
+      "lead": "Disponible para dispositivos Android. Descarga ahora y comienza a controlar tus dispositivos inteligentes.",
+      "button": "Descargar APK",
+      "note": "Nota: Es necesario permitir la instalación de aplicaciones de fuentes desconhecidas en la configuración de su dispositivo Android."
+    }
+  },
+   "contact": {
+    "title": "Contacto | AUTOHAUS",
+    "description": "Entre en contacto con el equipo AUTOHAUS. Resuelva sus dudas sobre nuestros productos y sistemas de automatización del hogar.",
+    "hero": {
+      "badge": "Contacto",
+      "title": "Hable con nosotros",
+      "lead": "¿Tiene dudas sobre el proyecto? Contacte con nosotros para más información."
+    },
+    "section_title": "Entre en Contacto",
+    "section_lead": "Estamos aquí para responder a sus preguntas sobre el sistema.",
+    "eric": {
+      "role": "Desarrollador"
+    },
+    "andre": {
+      "role": "Ingeniero"
+    },
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "instagram": "Instagram",
+    "form": {
+      "title": "Envía tu mensaje",
+      "subtitle": "Rellena el formulario y nos pondremos en contacto.",
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "success": "¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto contigo pronto.",
+      "error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+      "validation": "Por favor, rellena todos los campos.",
+      "sending": "Enviando tu mensaje..."
+    }
+  },
+  "gallery": {
+  "title": "Galería | AUTOHAUS",
+  "description": "Conozca nuestra galería de imágenes de los prototipos, desarrollo y aplicación del sistema AUTOHAUS.",
+  "hero": {
+    "badge": "Galería",
+    "title": "Nuestra Travesía en Imágenes",
+    "lead": "Explore la evolución del proyecto AUTOHAUS a través de fotos de los prototipos y desarrollo práctico del sistema."
+  },
+  "section_title": "Galería del Proyecto",
+  "lead": "Desde la concepción hasta la implementación, siga cada etapa del desarrollo de nuestro sistema de automatización.",
+  "filters": {
+    "all": "Todos",
+    "prototypes": "Prototipos",
+    "development": "Desarrollo",
+    "team": "Equipo"
+  },
+  "items": {
+    "prototype1": {
+      "title": "Prototipo Inicial",
+      "desc": "Primera versión del sistema con estructura básica."
+    },
+    "prototype2": {
+      "title": "Prototipo Mejorado",
+      "desc": "Segunda iteración con estructura de palitos y electrónica simple."
+    },
+    "prototype3": {
+      "title": "Prototipo con Automatización",
+      "desc": "Tercera versión integrando sensores y sistema de control por botones."
+    },
+    "prototype4": {
+      "title": "Prototipo Final",
+      "desc": "Versión final del prototipo con todas las funcionalidades implementadas."
+    },
+    "prototype5": {
+      "title": "Modelo 3D del Toldo y la Ventana",
+      "desc": "Estructura producida en la aplicación SketchUp."
+    },
+    "development1": {
+      "title": "Programación del ESP32",
+      "desc": "Proceso de configuración del microcontrolador."
+    },
+    "development2": {
+      "title": "Desarrollo de la aplicación",
+      "desc": "Proceso de creación de la aplicación"
+    },
+    "development3": {
+      "title": "Modelo 3D del toldo",
+      "desc": "Estrutura producida en la aplicación SketchUp."
+    },
+    "team1": {
+      "title": "Equipo AUTOHAUS",
+      "desc": "Equipo siendo premiado en Inovalândia."
+    }
   }
+}
 }

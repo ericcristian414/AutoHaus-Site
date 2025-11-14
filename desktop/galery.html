@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="gallery.title">Galeria | AUTOHAUS</title>
+  <meta name="description" data-i18n="gallery.description" content="Conheça nossa galeria de imagens dos protótipos, desenvolvimento e aplicação do sistema AUTOHAUS.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-desktop.css">
+  <script defer src="../script.js"></script>
+  <script defer src="../i18n.js"></script>
+  <style>
+    .gallery-section {
+      padding: 60px 0;
+    }
+    
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--glass-border);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .gallery-item {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(2,6,23,0.6);
+    }
+    
+    .gallery-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .gallery-caption {
+      padding: 16px;
+    }
+    
+    .gallery-caption h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .gallery-caption p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 18, 32, 0.95);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal.open {
+      display: flex;
+    }
+    
+    .modal-content {
+      max-width: 800px;
+      max-height: 90vh;
+      position: relative;
+      background: var(--card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--glass-border);
+    }
+    
+    .modal-image {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+    }
+    
+    .modal-caption {
+      padding: 20px;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(11, 18, 32, 0.7);
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 10;
+    }
+    
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(11, 18, 32, 0.7);
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 10;
+    }
+    
+    .modal-prev {
+      left: 20px;
+    }
+    
+    .modal-next {
+      right: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+      
+      .modal-content {
+        width: 95%;
+      }
+      
+      .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-filters {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main class="site-main">
+    <section class="hero" aria-label="Galeria do Projeto AUTOHAUS">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="badge" data-i18n="gallery.hero.badge">Galeria</span>
+          <h1 data-i18n="gallery.hero.title">Nossa Jornada em Imagens</h1>
+          <p class="lead" data-i18n="gallery.hero.lead">Explore a evolução do projeto AUTOHAUS através de fotos dos protótipos e desenvolvimento prático do sistema.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section alt section-alt1 gallery-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="gallery.section_title">Galeria de Projeto</h2>
+        <p class="lead muted" data-i18n="gallery.lead">Da concepção à implementação, acompanhe cada etapa do desenvolvimento do nosso sistema de automação.</p>
+        
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all" data-i18n="gallery.filters.all">Todos</button>
+          <button class="filter-btn" data-filter="prototypes" data-i18n="gallery.filters.prototypes">Protótipos</button>
+          <button class="filter-btn" data-filter="development" data-i18n="gallery.filters.development">Desenvolvimento</button>
+          <button class="filter-btn" data-filter="team" data-i18n="gallery.filters.team">Equipe</button>
+        </div>
+        
+        <div class="gallery-grid">
+          <div class="gallery-item" data-category="prototypes">
+            <img src="../images/prototype.jpg" alt="Primeiro protótipo do sistema AUTOHAUS" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.prototype1.title">Protótipo Inicial</h3>
+              <p data-i18n="gallery.items.prototype1.desc">Primeira versão do sistema com estrutura básica.</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="prototypes">
+            <img src="../images/Prototype2.png" alt="Segundo protótipo com melhorias" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.prototype2.title">Protótipo Aprimorado</h3>
+              <p data-i18n="gallery.items.prototype2.desc">Segunda iteração com estrutura de palitos e eletrônica simples.</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="prototypes">
+            <img src="../images/prototype3.png" alt="Terceiro protótipo com automação" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.prototype3.title">Protótipo com Automação</h3>
+              <p data-i18n="gallery.items.prototype3.desc">Terceira versão integrando sensores e sistema de controle por botões.</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="prototypes">
+            <img src="../images/prototype4.jpg" alt="Quarto protótipo final" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.prototype4.title">Protótipo Final</h3>
+              <p data-i18n="gallery.items.prototype4.desc">Versão final do protótipo com todas as funcionalidades implementadas.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="prototypes">
+            <img src="../images/Window.jpg" alt="Janela protótipo" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.prototype4.title">Protótipo Janela</h3>
+              <p data-i18n="gallery.items.prototype4.desc">Protótipo janela em escala real</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="development">
+            <img src="../images/tests.jpeg" alt="Desenvolvimento do aplicativo" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.development1.title">Programação do ESP32</h3>
+              <p data-i18n="gallery.items.development1.desc">Processo de configuração do microcontrolador.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="development">
+            <img src="../images/AppDevelopment.jpg" alt="Desenvolvimento do aplicativo" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.development2.title">Desenvolvimento do aplicativo</h3>
+              <p data-i18n="gallery.items.development2.desc">Processo de criação do aplicativo</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="development">
+            <img src="../images/3dAwning.jpg" alt="Desenvolvimento do aplicativo" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.development3.title">Modelo 3D do toldo</h3>
+              <p data-i18n="gallery.items.development3.desc">Estrutura produzida no aplicativo SketchUp.</p>
+            </div>
+          </div>
+          
+          <div class="gallery-item" data-category="team">
+            <img src="../images/Award.jpg" alt="Equipe de desenvolvimento do projeto" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.team1.title">Equipe AUTOHAUS</h3>
+              <p data-i18n="gallery.items.team1.desc">Time sendo premiado na Inovalândia.</p>
+            </div>
+          </div>
+        
+          
+          <div class="gallery-item" data-category="prototypes">
+            <img src="../images/design.jpg" alt="Estrutura detalhada do toldo" class="gallery-image">
+            <div class="gallery-caption">
+              <h3 data-i18n="gallery.items.prototype5.title">Modelo 3D do Toldo e da Janela</h3>
+              <p data-i18n="gallery.items.prototype5.desc">Estrutura produzida no aplicativo SketchUp.</p>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="imageModal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <button class="modal-nav modal-prev" id="modalPrev">‹</button>
+    <button class="modal-nav modal-next" id="modalNext">›</button>
+    <div class="modal-content">
+      <img id="modalImage" class="modal-image" src="" alt="">
+      <div class="modal-caption">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          
+          const filter = this.getAttribute('data-filter');
+          
+          galleryItems.forEach(item => {
+            if (filter === 'all' || item.getAttribute('data-category') === filter) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+      const modalClose = document.getElementById('modalClose');
+      const modalPrev = document.getElementById('modalPrev');
+      const modalNext = document.getElementById('modalNext');
+      
+      let currentIndex = 0;
+      let currentItems = [];
+      
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+          const img = this.querySelector('.gallery-image');
+          const title = this.querySelector('h3').textContent;
+          const description = this.querySelector('p').textContent;
+          
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+          modalTitle.textContent = title;
+          modalDescription.textContent = description;
+          
+          currentItems = Array.from(document.querySelectorAll('.gallery-item[style="display: block"], .gallery-item:not([style])'));
+          currentIndex = currentItems.indexOf(this);
+          
+          modal.classList.add('open');
+        });
+      });
+      
+      modalClose.addEventListener('click', function() {
+        modal.classList.remove('open');
+      });
+      
+      modalPrev.addEventListener('click', function() {
+        if (currentItems.length > 0) {
+          currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+          const item = currentItems[currentIndex];
+          const img = item.querySelector('.gallery-image');
+          const title = item.querySelector('h3').textContent;
+          const description = item.querySelector('p').textContent;
+          
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+          modalTitle.textContent = title;
+          modalDescription.textContent = description;
+        }
+      });
+      
+      modalNext.addEventListener('click', function() {
+        if (currentItems.length > 0) {
+          currentIndex = (currentIndex + 1) % currentItems.length;
+          const item = currentItems[currentIndex];
+          const img = item.querySelector('.gallery-image');
+          const title = item.querySelector('h3').textContent;
+          const description = item.querySelector('p').textContent;
+          
+          modalImage.src = img.src;
+          modalImage.alt = img.alt;
+          modalTitle.textContent = title;
+          modalDescription.textContent = description;
+        }
+      });
+      
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('open');
+        }
+      });
+      
+      document.addEventListener('keydown', function(e) {
+        if (modal.classList.contains('open')) {
+          if (e.key === 'Escape') {
+            modal.classList.remove('open');
+          } else if (e.key === 'ArrowLeft') {
+            modalPrev.click();
+          } else if (e.key === 'ArrowRight') {
+            modalNext.click();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -7,8 +7,8 @@
   --surface: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
   --card: rgba(255,255,255,0.03);
   --muted: rgba(255,255,255,0.72);
-  --accent1: #7c3aed;
-  --accent2: #06b6d4;
+  --accent1: #0078cd;
+  --accent2: #4b39ef;
   --radius: 14px;
   --glass-border: rgba(255,255,255,0.06);
   --max-width: 1100px;
@@ -34,7 +34,6 @@ html, body {
   padding: 0 20px;
 }
 
-/* Header */
 .site-header {
   position: relative;
   top: 0;
@@ -88,7 +87,6 @@ html, body {
   color: var(--muted);
 }
 
-/* Nav - Desktop */
 .site-nav {
   position: absolute;
   top: 100%;
@@ -125,7 +123,6 @@ html, body {
   margin-left: auto;
 }
 
-/* Main */
 .site-main {
   padding: 18px 0 28px;
 }
@@ -221,7 +218,6 @@ h1 {
   color: var(--muted);
 }
 
-/* KPIs */
 .kpis {
   display: flex;
   gap: 12px;
@@ -242,8 +238,6 @@ h1 {
   display: block;
 }
 
-
-/* Device card */
 .device-card {
   background: #060a13f1;
   border-radius: 22px;
@@ -274,7 +268,6 @@ h1 {
   background: transparent;
 }
 
-/* Sections */
 .section {
   padding: 60px 0;
 }
@@ -315,7 +308,6 @@ h1 {
   border: 1px solid var(--glass-border);
 }
 
-/* How it works */
 .how-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -334,7 +326,6 @@ h1 {
   margin-bottom: 8px;
 }
 
-/* Footer */
 .site-footer {
   margin-top: 20px;
   margin-bottom: -20px;
@@ -351,7 +342,6 @@ h1 {
   padding: 8px 0;
 }
 
-/* Utilities */
 .floaty {
   animation: floaty 6s ease-in-out infinite;
 }
@@ -375,7 +365,6 @@ h1 {
   box-shadow: 0 20px 40px rgba(2,6,23,0.6);
 }
 
-/* Responsive */
 @media (max-width: 1000px) {
   .hero-inner {
     grid-template-columns: 1fr minmax(260px, calc(var(--hero-media-width) - 160px));
@@ -390,8 +379,6 @@ h1 {
   }
 }
 
-
-/* Nav - Desktop */
 @media (min-width: 681px) {
 
   .site-header { 
@@ -401,7 +388,7 @@ h1 {
     margin-left: 8px;
   }
   .site-nav {
-    position: static; /* Alterado de absolute para static */
+    position: static; 
     display: flex;
     justify-content: flex-end;
     flex-grow: 1;
@@ -435,7 +422,6 @@ h1 {
 }
 
 @media (max-width: 680px) {
-  /* Container do header principal */
   .site-header {
   margin-top: 10px;
   margin-left: 10px;
@@ -444,39 +430,31 @@ h1 {
   margin-bottom: 5px;
   position: relative;
   z-index: 100;
-  /* overflow: visible; padrão já é visible, mas pode forçar se tiver outro lugar escondendo */
   }
 
-  
-
-  /* Remover reduções de largura */
   .pos-0, .pos-1, .pos-2, .pos-3 {
-    width: 100% !important;
+    width: 100%;
   }
 
-  /* Ajustar posicionamento dos cards */
-  .pos-0 { transform: translateZ(72px) scale(1) !important; }
-  .pos-1 { transform: translateX(10%) translateZ(22px) scale(.95) !important; }
-  .pos-2 { transform: translateZ(0px) scale(.9) !important; }
-  .pos-3 { transform: translateX(-10%) translateZ(22px) scale(.95) !important; }
+  .pos-0 { transform: translateZ(72px) scale(1); }
+  .pos-1 { transform: translateX(10%) translateZ(22px) scale(.95); }
+  .pos-2 { transform: translateZ(0px) scale(.9); }
+  .pos-3 { transform: translateX(-10%) translateZ(22px) scale(.95); }
 
-  /* Garantir que as imagens preencham o espaço */
   .device-card img {
-    height: 100% !important;
+    height: 100%;
     object-fit: cover;
   }
-  /* Botão do menu mobile */
   .nav-toggle {
-  display: flex !important;
+  display: flex;
   margin-left: auto;
   background: transparent;
   border: none;
   color: var(--muted);
   } 
 
-  /* Menu que será o "segundo header" */
   .site-nav {
-  position: relative; /* participate do fluxo normal */
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   max-height: 0;
@@ -486,16 +464,14 @@ h1 {
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   border: 0px solid var(--glass-border);
-  border-top: none; /* parece que fica "embaixo" do header */
+  border-top: none;
   }
 
-  /* Quando o menu está aberto */
   .site-nav.open {
-  max-height: 520px; /* ajuste conforme conteúdo */
+  max-height: 520px; 
   padding: 12px 20px;
   }
 
-  /* Estilização dos itens do menu */
   .site-nav ul {
   flex-direction: column;
   gap: 10px;
@@ -512,7 +488,6 @@ h1 {
 
   .site-nav a:hover { background: rgba(255,255,255,0.1); }
   
-  /* Hero Layout */
   .hero-inner,
   .hero .container {
     display: flex;
@@ -542,11 +517,10 @@ h1 {
   }
 }
 
-/* ===== Stack de Cards (custom) ===== */
 .card-stack{
   position: relative;
   width: 100%;
-  max-width: var(--stack-max); /* segue o hero-media, ajustável */
+  max-width: var(--stack-max);
   perspective: 1200px;
   display:flex;
   align-items:center;
@@ -556,7 +530,6 @@ h1 {
 .stack-stage{
   position: relative;
   width: 100%;
-  /* mantém proporção 16:9 para a área do stack */
   padding-top: 65%;
   height: 0;
   overflow: visible;
@@ -575,9 +548,7 @@ h1 {
   box-sizing: border-box;
   will-change: transform, opacity;
   transition: transform 620ms cubic-bezier(.2,.9,.3,1), box-shadow 420ms ease, opacity 420ms ease;
-  /* manter visual do device-card (herda .device-card) */
 }
-/* imagens dentro do stack respeitam 16:9 e o estilo atual */
 .stack-card img{
   width:100%;
   height:100%;
@@ -586,7 +557,6 @@ h1 {
   border-radius:15px;
 }
 
-/* botão */
 .stack-btn{
   background: transparent;
   border: 1px solid rgba(255,255,255,0.06);
@@ -605,7 +575,6 @@ h1 {
 }
 .stack-btn:active{ transform: scale(.98) }
 
-/* Hover/Focus animation for stack buttons */
 .stack-btn:hover, .stack-btn:focus{
   transform: scale(1.14);
   box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 6px rgba(1, 1, 44, 0.26);
@@ -613,9 +582,6 @@ h1 {
   color: white;
 }
 
-
-/* posição visual: frente, direita, trás, esquerda */
-/* pos-0 = front (em destaque) */
 .pos-0{
   z-index: 40;
   opacity: 1;
@@ -623,7 +589,6 @@ h1 {
   box-shadow: 0 18px 40px rgba(2,6,23,0.6);
   width: 100%;
 }
-/* pos-1 = next (aparece à direita) - aparece 10px do lado direito */
 .pos-1{
   z-index: 30;
   opacity: 1;
@@ -631,7 +596,6 @@ h1 {
   width: calc(100% - 18px);
   box-shadow: 0 12px 30px rgba(2,6,23,0.5);
 }
-/* pos-2 = back (atrás, mais pequeno e mais profundo) */
 .pos-2{
   z-index: 20;
   opacity: 1;
@@ -639,7 +603,6 @@ h1 {
   width: calc(100% - 36px);
   box-shadow: 0 8px 20px rgba(2,6,23,0.45);
 }
-/* pos-3 = prev (aparece à esquerda) - aparece 10px do lado esquerdo */
 .pos-3{
   z-index: 25;
   opacity: 1;
@@ -648,54 +611,43 @@ h1 {
   box-shadow: 0 12px 30px rgba(2,6,23,0.5);
 }
 
-/* quando não estiver em nenhuma posição (estado inicial invisível) */
 .stack-card:not(.pos-0):not(.pos-1):not(.pos-2):not(.pos-3){
   opacity: 0;
   transform: translateZ(-40px) scale(.9);
   pointer-events: none;
 }
 
-/* responsividade: segue seu hero-media */
 @media (max-width: 800px){
   .card-stack{ max-width: var(--stack-max-mobile); }
   .stack-btn{ width:40px; height:40px; font-size:20px; }
   .device-card img{ max-height: 220px; height:auto; }
 }
-/* acessibilidade: reduz animação se preferir */
 @media (prefers-reduced-motion: reduce){
   .stack-card,
-  .stack-btn{ transition: none !important; animation: none !important; }
-  .pos-0,.pos-1,.pos-2,.pos-3{ transform: none !important; }
+  .stack-btn{ transition: none; animation: none; }
+  .pos-0,.pos-1,.pos-2,.pos-3{ transform: none; }
 }
 
-
-
-/* ===== Mobile fixes for stack (força maior uso da viewport e feedback tactile) ===== */
 @media (max-width: 680px) {
-  /* permitir que o stack ocupe a maior largura possível da viewport,
-     mantendo pequenas margens laterais para não colar na borda do telefone */
   .card-stack{
-    max-width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px);
     margin: 0 12px;
     gap: 8px;
   }
 
-  /* garantir proporção 4:3 (ou troque o valor se preferir 16:9 => 56.25%) */
-  .stack-stage{ padding-top: 75% !important; }
+  .stack-stage{ padding-top: 75%; }
 
-  /* remover qualquer limitação de altura nas imagens */
   .card-stack .device-card img,
   .stack-card img{
-    max-height: none !important;
-    height: 100% !important;
-    width: 100% !important;
+    max-height: none;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
   }
 
-  /* tornar os botões maiores e posicionados sobre o stack, bom para touch */
   .stack-btn{
-    width: 52px !important;
-    height: 52px !important;
+    width: 52px;
+    height: 52px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -710,7 +662,6 @@ h1 {
   .stack-prev{ left: 8px; }
   .stack-next{ right: 8px; }
 
-  /* efeito maior no hover/focus e toque (active) */
   .stack-btn:hover, .stack-btn:focus{
     transform: translateY(-50%) scale(1.08);
     box-shadow: 0 14px 30px rgba(0,0,0,0.45);
@@ -719,57 +670,47 @@ h1 {
     transform: translateY(-50%) scale(.98);
   }
 
-  /* reduzir sobra e garantir que o card frontal apareça bem maior */
-  .pos-0{ transform: translateX(0) translateZ(72px) scale(1) !important; }
-  .pos-1, .pos-3{ width: calc(100% - 18px) !important; transform: translateZ(22px) scale(.985) !important; }
-  .pos-2{ width: calc(100% - 36px) !important; transform: translateZ(0px) scale(.96) !important; }
+  .pos-0{ transform: translateX(0) translateZ(72px) scale(1); }
+  .pos-1, .pos-3{ width: calc(100% - 18px); transform: translateZ(22px) scale(.985); }
+  .pos-2{ width: calc(100% - 36px); transform: translateZ(0px) scale(.96); }
 
-  /* evitar que o hero-grid limite a largura do media na versão mobile */
   .hero-inner { grid-template-columns: 1fr minmax(260px, calc(var(--hero-media-width) - 120px)); }
 }
 
-/* small touch feedback for mobile users (works also on desktop when used by touch) */
 .stack-btn{ -webkit-tap-highlight-color: transparent; }
 
-
-/* ===== Final mobile safe overrides for stack ===== */
 @media (max-width: 680px) {
-  /* Use proportional height (4:3) so image keeps aspect ratio and cards are visible */
   .card-stack{
-    max-width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px);
     margin: 0 12px;
     gap: 8px;
   }
   .stack-stage{
-    padding-top: 75% !important; /* 4:3 */
-    height: auto !important;
-    min-height: 260px !important;
-    overflow: visible !important;
+    padding-top: 75%; 
+    height: auto;
+    min-height: 260px;
+    overflow: visible;
   }
 
   .site-nav .nav-link.current {
-  font-weight: 800 !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
   background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   }
-
   
-  /* Ensure images fill the card area */
   .card-stack .device-card img,
   .stack-card img{
-    width: 100% !important;
-    height: 100% !important;
-    max-height: none !important;
-    object-fit: cover !important;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
   }
-  /* Position buttons overlay and make touch friendly */
   .stack-btn{ position: absolute; top: 50%; transform: translateY(-50%); z-index: 90; }
   .stack-prev{ left: 8px; }
   .stack-next{ right: 8px; }
 
-  /* make the front card clearly larger */
-  .pos-0{ transform: translateX(0) translateZ(80px) scale(1) !important; }
-  .pos-1, .pos-3{ transform: translateZ(24px) scale(.98) !important; width: calc(100% - 18px) !important; }
-  .pos-2{ transform: translateZ(0px) scale(.96) !important; width: calc(100% - 36px) !important; }
+  .pos-0{ transform: translateX(0) translateZ(80px) scale(1); }
+  .pos-1, .pos-3{ transform: translateZ(24px) scale(.98); width: calc(100% - 18px); }
+  .pos-2{ transform: translateZ(0px) scale(.96); width: calc(100% - 36px); }
 }

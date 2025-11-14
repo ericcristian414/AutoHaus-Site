@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seletor de Tema (Claro / Escuro) — Semicírculo</title>
+  <style>
+    :root{
+      --size: 140px; 
+      --transition: 1600ms cubic-bezier(.2,.9,.3,1);
+      --text: #222;
+      --icon-scale: 0.5; 
+      --rot: 0deg; 
+      --moon-rot: 0deg; 
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0; display:flex; align-items:center; justify-content:center;
+      background:linear-gradient(180deg,#e9f2ff 0%, #ffffff 100%);
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      color:var(--text); transition:background var(--transition), color var(--transition);
+      min-height:100vh;
+    }
+
+    .theme-toggle{
+      width:var(--size); height:calc(var(--size)/2);
+      border-radius: calc(var(--size)/2) calc(var(--size)/2) 0 0;
+      overflow:hidden; position:relative;
+      box-shadow: 0 6px 18px rgba(20,30,60,.12);
+      cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;
+      background:linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.2));
+    }
+
+    .scene{ width:100%; height:100%; position:relative; }
+
+
+    .icon{
+      --rot: var(--rot);
+      position:absolute; left:50%; top:75%;
+      width:calc(var(--size) * var(--icon-scale)); height:calc(var(--size) * var(--icon-scale));
+      transform-origin:center center;
+      transform: translate(-50%,-50%) rotate(var(--rot));
+      transition: transform var(--transition);
+      display:grid; place-items:center; z-index:3; pointer-events:none;
+    }
+
+
+    .sun{
+      width:78%; aspect-ratio:1/1; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #fff9d3 0%, #fff2a8 25%, #ffd24d 60%, #ffb100 100%);
+      box-shadow: 0 4px 10px rgba(255,170,20,.08);
+      transition: opacity var(--transition), transform var(--transition);
+      opacity:1;
+      position:absolute; bottom:45%;
+    }
+
+    .theme-icon.moon{
+      width:78%; height:auto; display:block; opacity:0; transition:opacity var(--transition), transform var(--transition);
+      transform-origin:center center; transform-box:fill-box;
+      transform: rotate(calc(var(--moon-rot) - var(--rot)));
+      color:#2b3a55;
+      position:absolute; top:50%;
+    }
+
+    .stars{
+      padding-top: -10px;
+      position:absolute; inset:0; pointer-events:none; z-index:1; opacity:1; transform:translateY(-6px); transition:opacity var(--transition), transform var(--transition);
+      background: transparent;
+    }
+    .stars::before{
+      content:''; position:absolute; width:2px; height:2px; border-radius:50%; background:transparent;
+      box-shadow:
+        8px 10px #fff, 
+        24px 6px #fff,
+        38px 18px #fff,
+        58px 8px #fff,
+        72px 20px #fff,
+        92px 4px #fff,
+        110px 16px #fff,
+        130px 12px #fff,
+        150px 6px #fff,
+        170px 18px #fff,
+        12px 38px #fff, 
+        28px 46px #fff,
+        42px 54px #fff,
+        62px 36px #fff,
+        76px 58px #fff,
+        96px 42px #fff,
+        114px 44px #fff,
+        134px 50px #fff,
+        154px 44px #fff,
+        174px 54px #fff;
+      opacity:1;
+      transform:scale(.9);
+    }
+
+    body.light{ background:linear-gradient(180deg,#e9f2ff 0%, #ffffff 100%); color:var(--text); }
+    .theme-toggle.light .scene{ background: linear-gradient(180deg,#cfe8ff 0%, #eaf6ff 100%);} 
+    .theme-toggle.light .sun{ opacity:1; transform:scale(1); }
+    .theme-toggle.light .theme-icon.moon{ opacity:0; }
+
+    body.dark{ background:linear-gradient(180deg,#061226 0%, #071221 100%); color:#e8f1ff; }
+    .theme-toggle.dark .scene{ background: linear-gradient(180deg,#061226 0%, #0b1a2b 100%);} 
+    .theme-toggle.dark .sun{ opacity:0; transform:scale(.6); }
+    .theme-toggle.dark .theme-icon.moon{ opacity:1; color:#f3f6ff; }
+
+    .theme-toggle.dark .icon{ 
+      --rot: 180deg; transform: translate(-50%,-50%) rotate(var(--rot));
+    }
+    .theme-toggle.light .icon{ --rot: 0deg; transform: translate(-50%,-50%) rotate(var(--rot)); }
+
+    .theme-toggle:active .icon{ transform: translate(-50%,-50%) rotate(var(--rot)) scale(.96); transition: transform 120ms; }
+
+    @media (max-width:420px){ :root{ --size:120px } }
+
+    .hint{ margin-top:14px; font-size:14px; text-align:center; opacity:.9 }
+  </style>
+</head>
+<body class="light">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+    <div id="toggle" class="theme-toggle light" role="button" aria-pressed="false" tabindex="0" title="Alternar tema">
+      <div class="scene">
+        <div class="icon" aria-hidden="true">
+          <div class="sun" aria-hidden="true"></div>
+          <svg class="theme-icon moon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="stars" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="hint">Clique no semicirculo para alternar entre <strong>dia</strong> e <strong>noite</strong></div>
+  </div>
+
+  <script>
+    const body = document.body;
+    const toggle = document.getElementById('toggle');
+
+
+    try{
+      const saved = localStorage.getItem('pref-theme-dark');
+      if(saved !== null) body.classList.toggle('dark', saved === '1');
+    }catch(e){ }
+
+    function applyTheme(){
+      const dark = body.classList.contains('dark');
+      toggle.classList.toggle('dark', dark);
+      toggle.classList.toggle('light', !dark);
+      toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      try{ localStorage.setItem('pref-theme-dark', dark ? '1' : '0'); }catch(e){}
+    }
+
+    toggle.addEventListener('click', ()=>{ body.classList.toggle('dark'); applyTheme(); });
+    toggle.addEventListener('keydown', (e)=>{ if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); body.classList.toggle('dark'); applyTheme(); } });
+
+    applyTheme();
+  </script>
+</body>
+</html>

@@ -527,6 +527,11 @@ body.dark {}
   justify-content: center;
 }
 
+.sociallogo {
+    width: 40px;
+    height: 40px;
+}
+
 .footer-social {
   display: flex;
   align-items: center;

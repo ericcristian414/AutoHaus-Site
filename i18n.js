@@ -1,7 +1,7 @@
 class I18n {
     constructor() {
         this.translations = {};
-        this.currentLang = localStorage.getItem('preferred-language') || 'pt-BR';
+        this.currentLang = localStorage.getItem('preferred-language') || 'en';
         this.isInitialized = false;
         this.init();
     }
